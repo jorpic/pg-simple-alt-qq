@@ -12,7 +12,7 @@ import Language.Haskell.Meta (parseExp)
 
 
 sql :: QuasiQuoter
-sql = sqlQuoter "$(" ")"
+sql = sqlQuoter "$(" ")$"
 
 sqlQuoter :: String -> String -> QuasiQuoter
 sqlQuoter from to = QuasiQuoter
