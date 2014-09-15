@@ -21,7 +21,7 @@ library
   hs-source-dirs:      src
 
   build-depends:
-    base             >= 4.6 && < 4.7,
+    base             >= 4.6 && < 4.8,
     template-haskell >= 2.8 && < 2.10,
     haskell-src-meta == 0.6.*,
     split            == 0.2.*
