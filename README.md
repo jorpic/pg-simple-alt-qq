@@ -16,5 +16,9 @@ This bit of code allows to put Haskell expressions inside SQL queries.
             and datname = $(dbName)$
         |]
 
+Don't forget to enable `OverloadedStrings` extension, owherwise you can encounter errors like:
+
+    Couldn't match expected type ‘Query’ with actual type ‘[Char]’
+    
 == TODO
  - SQL lexer
