@@ -28,4 +28,5 @@ library
 
 
   default-extensions:
-    TemplateHaskell, QuasiQuotes
+    TemplateHaskell, QuasiQuotes,
+    LambdaCase
