@@ -1,5 +1,5 @@
 name:                pg-simple-qq-alt
-version:             0.0.1.0
+version:             0.1.0.0
 synopsis:            Better quasi quotation for postgresql-simple
 
 homepage:            https://github.com/jorpic/pg-simple-qq-alt
