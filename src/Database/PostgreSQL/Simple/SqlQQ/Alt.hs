@@ -28,11 +28,11 @@ sqlQuoter from to = QuasiQuoter
 hlistE :: [ExpQ] -> ExpQ
 hlistE = \case
   []   -> tupE []
-  [x]  -> x
-  x:xs ->
-    let cons = conE $ mkName ":."
-    in cons `appE` x `appE` hlistE xs
-
+  [x]  -> only x
+  x:xs -> only x `cons` hlistE xs
+  where
+    cons = flip uInfixE (conE $ mkName ":.")
+    only = appE $ conE $ mkName "Only"
 
 parseQuery :: String -> String -> String -> Either String (String, [ExpQ])
 parseQuery from to str
