@@ -21,9 +21,18 @@ sqlQuoter from to = QuasiQuoter
   ,quoteDec  = error ""
   ,quoteExp  = \s -> case parseQuery from to s of
     Right (query, [param]) -> tupE [stringE query, listE [param]]
-    Right (query, params)  -> tupE [stringE query, tupE params]
+    Right (query, params)  -> tupE [stringE query, hlistE params]
     Left err -> error err
   }
+
+hlistE :: [ExpQ] -> ExpQ
+hlistE = \case
+  []   -> tupE []
+  [x]  -> only x
+  x:xs -> only x `cons` hlistE xs
+  where
+    cons = flip uInfixE (conE $ mkName ":.")
+    only = appE $ conE $ mkName "Only"
 
 parseQuery :: String -> String -> String -> Either String (String, [ExpQ])
 parseQuery from to str
