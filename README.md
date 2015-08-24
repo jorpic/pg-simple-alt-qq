@@ -22,3 +22,6 @@ Don't forget to enable `OverloadedStrings` extension, owherwise you can encounte
     
 == TODO
  - SQL lexer
+
+== See also
+ - [Discussion about quasiquoters in pg-simple](https://github.com/lpsmith/postgresql-simple/issues/120#issuecomment-58345472)
